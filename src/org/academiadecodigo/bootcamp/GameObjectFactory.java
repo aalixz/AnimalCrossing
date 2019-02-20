@@ -15,14 +15,14 @@ public class GameObjectFactory implements Collidable {
 
         switch (obstacleType) {
             case FOX:
-                obstacle = new Fox();
+                obstacle = new Fox(col, row);
                 break;
             case TRACTOR:
-                obstacle = new Fox(); //tractor
+                obstacle = new Fox(col, row); //tractor
                 break;
             default:
                 System.out.println("something really really weird happened");
-                obstacle = new Fox();
+                obstacle = new Fox(col, row);
         }
 
         return obstacle;

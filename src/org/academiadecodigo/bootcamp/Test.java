@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 public class Test {
     public static void main(String[] args) throws Exception {
 
@@ -8,7 +10,8 @@ public class Test {
 
         Player bunny = new Player(grid, grid.columnToX(grid.getCols() / 2), grid.rowToY(grid.getRows() - 1));
         bunny.init();
-        GameObjectFactory.getNewCollidable()
+       GameObjectFactory.getNewCollidable(grid.getCols(),grid.getRows());
+
 
 
     }
