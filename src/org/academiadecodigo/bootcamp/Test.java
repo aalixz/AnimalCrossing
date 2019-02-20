@@ -8,6 +8,8 @@ public class Test {
 
         Player bunny = new Player(grid, grid.columnToX(grid.getCols() / 2), grid.rowToY(grid.getRows() - 1));
         bunny.init();
+        GameObjectFactory.getNewCollidable()
+
 
     }
 }
