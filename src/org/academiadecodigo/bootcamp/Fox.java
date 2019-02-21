@@ -6,7 +6,7 @@ public class Fox implements Collidable{
 
 
     public Fox(int col,int row) {
-       Picture fox = new Picture(col,row,"BunnyUp.jpg");
+       Picture fox = new Picture(col,row,"fox.png");
        fox.draw();
 
     }

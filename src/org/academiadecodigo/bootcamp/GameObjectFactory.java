@@ -18,7 +18,7 @@ public class GameObjectFactory implements Collidable {
                 obstacle = new Fox(col, row);
                 break;
             case TRACTOR:
-                obstacle = new Fox(col, row); //tractor
+                obstacle = new Tractor(col, row); //tractor
                 break;
             default:
                 System.out.println("something really really weird happened");
