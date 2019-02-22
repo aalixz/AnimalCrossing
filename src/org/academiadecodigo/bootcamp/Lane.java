@@ -15,7 +15,7 @@ public class Lane {
 
     public void generateSafeLane(Grid grid) {
         this.obstacles = null;
-        drawBackground(grid,"GrassTile.png");
+        drawBackground(grid, "BackgroundTiles/GrassTile.png");
     }
 
     public void generateCollidableLane(Grid grid, Collidable.CollidableType type, int num, int spacing) {
@@ -27,10 +27,10 @@ public class Lane {
 
         switch (type) {
             case FOX:
-                drawBackground(grid, "GrassTile.png");
+                drawBackground(grid, "BackgroundTiles/GrassTile.png");
 
             case TRACTOR:
-                drawBackground(grid, "CropTile.png");
+                drawBackground(grid, "BackgroundTiles/CropTile.png");
 
             default:
                 generateSafeLane(grid);
