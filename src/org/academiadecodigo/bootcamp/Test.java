@@ -1,18 +1,10 @@
 package org.academiadecodigo.bootcamp;
 
-import org.academiadecodigo.simplegraphics.pictures.Picture;
-
 public class Test {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        Grid grid = new Grid();
-        grid.draw();
-
-        Player bunny = new Player(grid, grid.columnToX(grid.getCols() / 2), grid.rowToY(grid.getRows() - 1));
-        bunny.init();
-       GameObjectFactory.getNewCollidable(grid.getCols(),grid.getRows());
-
-
+        Game slot1 = new Game();
+        slot1.start();
 
     }
 }
