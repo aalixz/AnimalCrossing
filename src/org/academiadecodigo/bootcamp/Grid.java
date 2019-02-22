@@ -9,7 +9,7 @@ public class Grid {
     public final int PADDING = 10;
     public final int CELL_SIZE = 60;
     private final int COLS = 13;
-    private final int ROWS = 10;
+    private final int ROWS = 11;
     // endregion
 
     public void draw() {
@@ -18,7 +18,7 @@ public class Grid {
 /*        for (int row = 0; row < ROWS; row++) {
             for (int col = 0; col < COLS; col++) {
                 Picture tile = new Picture(columnToX(col), rowToY(row), "grassTile.png");
-                tile.draw();
+                tile.show();
             }
         }*/
     }
