@@ -40,6 +40,9 @@ public class Game implements KeyboardHandler {
         lanes[5] = new Lane(5);
         lanes[5].generateSafeLane(grid);
 
+        lanes[9] = new Lane(9);
+        lanes[9].generateCollidableLane(grid, GameObject.Direction.LEFT,2,2);
+
         lanes[10] = new Lane(10);
         lanes[10].generateSafeLane(grid);
 
