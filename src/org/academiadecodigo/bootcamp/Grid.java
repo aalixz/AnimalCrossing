@@ -1,7 +1,6 @@
 package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Grid {
 
@@ -9,7 +8,7 @@ public class Grid {
     public final int PADDING = 10;
     public final int CELL_SIZE = 60;
     private final int COLS = 13;
-    private final int ROWS = 10;
+    private final int ROWS = 11;
     // endregion
 
     public void draw() {
@@ -18,7 +17,7 @@ public class Grid {
 /*        for (int row = 0; row < ROWS; row++) {
             for (int col = 0; col < COLS; col++) {
                 Picture tile = new Picture(columnToX(col), rowToY(row), "grassTile.png");
-                tile.draw();
+                tile.show();
             }
         }*/
     }
@@ -32,6 +31,7 @@ public class Grid {
     }
 
     // region Getters
+
     public int getWidth() {
         return COLS * CELL_SIZE;
     }
