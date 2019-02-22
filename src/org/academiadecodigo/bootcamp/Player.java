@@ -17,7 +17,7 @@ public class Player implements KeyboardHandler {
     public Player(Grid grid, int x, int y) {
         this.grid = grid;
         this.kb = new Keyboard(this);
-        this.playerSprite = new Picture(x,y,"BunnyUp.png");
+        this.playerSprite = new Picture(x,y, "Bunny/BunnyUp.png");
     }
 
 
