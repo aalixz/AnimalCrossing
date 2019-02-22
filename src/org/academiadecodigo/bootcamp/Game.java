@@ -4,6 +4,7 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Game implements KeyboardHandler {
 
@@ -43,6 +44,12 @@ public class Game implements KeyboardHandler {
         lanes[10].generateSafeLane(grid);
 
         bunny.show();
+
+        Picture moveText = new Picture(grid.PADDING, grid.PADDING, "Move.png");
+        Picture quitText = new Picture(grid.getWidth() - 70, grid.PADDING, "Quit.png");
+
+        moveText.draw();
+        quitText.draw();
 
     }
 

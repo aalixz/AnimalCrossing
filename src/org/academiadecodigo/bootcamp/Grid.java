@@ -1,7 +1,6 @@
 package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Grid {
 
@@ -32,6 +31,7 @@ public class Grid {
     }
 
     // region Getters
+
     public int getWidth() {
         return COLS * CELL_SIZE;
     }

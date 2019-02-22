@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp;
 
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Player {
@@ -22,7 +21,7 @@ public class Player {
     public void moveRight(int cellSize) {
             playerSprite.load("Bunny/BunnyRight.png");
             playerSprite.translate(cellSize, 0);
-            playerSprite.load("Bunny/BunnyJumpRight.png");
+            //playerSprite.load("Bunny/BunnyJumpRight.png");
         
     }
 
