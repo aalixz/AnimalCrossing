@@ -31,7 +31,16 @@ public class Game implements KeyboardHandler {
 
         grid.draw();
 
-        //GameObjectFactory.getNewCollidable(grid.getCols(),grid.getRows());
+        lanes = new Lane[grid.getRows()];
+
+        lanes[0] = new Lane(0);
+        lanes[0].generateSafeLane(grid);
+
+        lanes[5] = new Lane(5);
+        lanes[5].generateSafeLane(grid);
+
+        lanes[10] = new Lane(10);
+        lanes[10].generateSafeLane(grid);
 
         bunny.show();
 

@@ -5,43 +5,40 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Lane {
 
     // region Properties
-    private Grid grid;
     private int rowIndex;
     private GameObject[] obstacles;
     // endregion
 
-    public Lane(Grid grid, int rowIndex) {
-        this.grid = grid;
+    public Lane(int rowIndex) {
         this.rowIndex = rowIndex;
     }
 
-    public void generateSafeLane() {
+    public void generateSafeLane(Grid grid) {
         this.obstacles = null;
-        drawBackground("GrassTile.png");
+        drawBackground(grid,"GrassTile.png");
     }
 
-    public void generateCollidableLane(Collidable.CollidableType type, int num, int spacing) {
+    public void generateCollidableLane(Grid grid, Collidable.CollidableType type, int num, int spacing) {
         this.obstacles = new GameObject[num];
 
         // Creates a random difference between the starting positions of the obstacles
         int offset = (int)(Math.random() * 3);
 
+
         switch (type) {
             case FOX:
-                drawBackground("GrassTile.png");
-                //pedir fox ao factory;
+                drawBackground(grid, "GrassTile.png");
 
             case TRACTOR:
-                drawBackground("CropTile.png");
-                //pedir tractor ao factory;
+                drawBackground(grid, "CropTile.png");
 
             default:
-                generateSafeLane();
+                generateSafeLane(grid);
         }
 
     }
 
-    private void drawBackground(String backgroundTile) {
+    private void drawBackground(Grid grid, String backgroundTile) {
         for (int col = 0; col < grid.getCols(); col++) {
             Picture tile = new Picture(grid.columnToX(col), grid.rowToY(rowIndex),
                     backgroundTile);
