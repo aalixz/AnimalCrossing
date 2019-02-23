@@ -23,7 +23,7 @@ public class Player {
             playerSprite.load("Bunny/BunnyRight.png");
             playerSprite.translate(cellSize, 0);
             playerSprite.load("Bunny/BunnyJumpRight.png");
-
+        
     }
 
     public void moveLeft(int cellSize) {

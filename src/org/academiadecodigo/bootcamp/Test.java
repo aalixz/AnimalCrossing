@@ -1,9 +1,19 @@
 package org.academiadecodigo.bootcamp;
 
-public class Test {
-    public static void main(String[] args) {
+import java.io.IOException;
 
+public class Test {
+    public static void main(String[] args) throws Exception {
+        Sound sound;
         Game slot1 = new Game();
+        try {
+            sound = new Sound();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         slot1.start();
 
     }

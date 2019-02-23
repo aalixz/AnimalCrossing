@@ -7,7 +7,7 @@ public class Grid {
 
     // region Properties
     public final int PADDING = 10;
-    public final int CELL_SIZE = 60;
+    public static final int CELL_SIZE = 60;
     private final int COLS = 13;
     private final int ROWS = 11;
     // endregion
@@ -23,6 +23,12 @@ public class Grid {
         }*/
     }
 
+    public boolean isEdge(GameObject obstacle){
+            return (obstacle != null) &&
+                    ((obstacle.getDir() == GameObject.Direction.LEFT && obstacle.getSprite().getX() == PADDING) ||
+                    (obstacle.getDir() == GameObject.Direction.RIGHT && obstacle.getSprite().getMaxX() == getWidth()));
+    }
+
     public int columnToX(int column) {
         return column * CELL_SIZE + PADDING;
     }
@@ -32,6 +38,7 @@ public class Grid {
     }
 
     // region Getters
+
     public int getWidth() {
         return COLS * CELL_SIZE;
     }
