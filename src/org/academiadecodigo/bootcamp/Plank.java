@@ -8,14 +8,10 @@ public class Plank extends GameObject implements Rideable {
         this.setSpeed(1);
         this.setDir(dir);
 
-        if (dir == GameObject.Direction.LEFT) {
-            this.setSprite(new Picture(col,row,"GameObjects/TractorLeft.png"));
+            // TODO: array de sprites
+            this.setSprite(new Picture(col,row,"GameObjects/PlankLeft.png"));
             this.getSprite().draw();
 
-        } else {
-            this.setSprite(new Picture(col,row,"GameObjects/TractorRight.png"));
-            this.getSprite().draw();
-        }
     }
 
 }
