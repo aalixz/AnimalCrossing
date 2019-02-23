@@ -19,7 +19,7 @@ public class Game implements KeyboardHandler {
         this.kb = new Keyboard(this);
     }
 
-    public void start() throws Exception {
+    public void start() {
 
         // region Key Events
         addKeyEvent(KeyboardEvent.KEY_UP, KeyboardEventType.KEY_PRESSED);
@@ -76,6 +76,7 @@ public class Game implements KeyboardHandler {
 
         moveText.draw();
         quitText.draw();
+
 
     }
 
