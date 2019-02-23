@@ -23,45 +23,67 @@ public class Lane {
     public void generateCollidableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
         this.obstacles = new GameObject[num];
 
-        // Creates a random difference between the starting positions of the obstacles
-        int offset = (int) (Math.random() * 3 * grid.CELL_SIZE);
+        int offset = (int)(Math.random() * 3 * grid.CELL_SIZE);
+
         spacing = spacing * grid.CELL_SIZE;
-        int random = (int) (Math.random() * Collidable.CollidableType.values().length);
+
+        int random = (int)(Math.random() * Collidable.CollidableType.values().length);
         Collidable.CollidableType type = Collidable.CollidableType.values()[random];
 
 
         switch (type) {
             case FOX:
                 drawBackground(grid, "BackgroundTiles/GrassTile.png");
-                if (dir == GameObject.Direction.LEFT) {
                     int posX = offset;
                     for (int i = 0; i < num; i++) {
-                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), FOX, dir);
-                        posX -= spacing;
-                    }
-                } else {
-                    int posX = offset;
-                    for (int i = 0; i < num; i++) {
-                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), FOX, dir);
+                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
                         posX += spacing;
                     }
-                }
                 break;
 
             case TRACTOR:
                 drawBackground(grid, "BackgroundTiles/CropTile.png");
-                if (dir == GameObject.Direction.LEFT) {
-                    int posX = offset;
+                    posX = offset;
                     for (int i = 0; i < num; i++) {
-                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), TRACTOR, dir);
-                        posX -= spacing;
-                    }
-                } else {
-                    int posX = offset;
-                    for (int i = 0; i < num; i++) {
-                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), TRACTOR, dir);
+                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
                         posX += spacing;
                     }
+                break;
+
+            default:
+                generateSafeLane(grid);
+                break;
+        }
+
+    }
+
+    public void generateRideableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
+        this.obstacles = new GameObject[num];
+
+        int offset = (int)(Math.random() * 3 * grid.CELL_SIZE);
+
+        spacing = spacing * grid.CELL_SIZE;
+
+        int random = (int)(Math.random() * Rideable.RideableType.values().length);
+        Rideable.RideableType type = Rideable.RideableType.values()[random];
+
+
+        switch (type) {
+            case PIG:
+                drawBackground(grid, "BackgroundTiles/MudTile.png");
+                int posX = offset;
+                for (int i = 0; i < num; i++) {
+                    GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
+                    posX += spacing;
+                }
+                break;
+
+            case PLANK:
+                drawBackground(grid, "BackgroundTiles/MudTile.png");
+                posX = offset;
+                for (int i = 0; i < num; i++) {
+                    GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
+                    posX += spacing;
                 }
                 break;
 

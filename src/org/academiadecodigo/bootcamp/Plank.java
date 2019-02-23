@@ -2,9 +2,9 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class Fox extends GameObject implements Collidable{
+public class Plank extends GameObject implements Rideable {
 
-    public Fox(int col,int row, GameObject.Direction dir) {
+    public Plank(int col, int row, GameObject.Direction dir) {
         this.setSpeed(1);
         this.setDir(dir);
 
@@ -17,4 +17,5 @@ public class Fox extends GameObject implements Collidable{
             this.getSprite().draw();
         }
     }
+
 }
