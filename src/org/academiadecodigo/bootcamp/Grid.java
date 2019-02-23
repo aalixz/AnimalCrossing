@@ -24,8 +24,7 @@ public class Grid {
     }
 
     public boolean isEdge(GameObject obstacle){
-            return (obstacle != null) &&
-                    ((obstacle.getDir() == GameObject.Direction.LEFT && obstacle.getSprite().getX() == PADDING) ||
+            return ((obstacle.getDir() == GameObject.Direction.LEFT && obstacle.getSprite().getX() == PADDING) ||
                     (obstacle.getDir() == GameObject.Direction.RIGHT && obstacle.getSprite().getMaxX() == getWidth()));
     }
 

@@ -39,16 +39,16 @@ public class Game implements KeyboardHandler {
         lanes[0].generateSafeLane(grid);
 
         lanes[1] = new Lane(1);
-        lanes[1].generateRideableLane(grid, GameObject.Direction.RIGHT, 2, 2);
+        lanes[1].generateRideableLane(grid, GameObject.Direction.LEFT, 3, 2);
 
         lanes[2] = new Lane(2);
         lanes[2].generateRideableLane(grid, GameObject.Direction.RIGHT, 2, 2);
 
         lanes[3] = new Lane(3);
-        lanes[3].generateRideableLane(grid, GameObject.Direction.RIGHT, 2, 2);
+        lanes[3].generateRideableLane(grid, GameObject.Direction.RIGHT, 3, 2);
 
         lanes[4] = new Lane(4);
-        lanes[4].generateRideableLane(grid, GameObject.Direction.RIGHT, 2, 2);
+        lanes[4].generateRideableLane(grid, GameObject.Direction.RIGHT, 4, 2);
 
         lanes[5] = new Lane(5);
         lanes[5].generateSafeLane(grid);
@@ -83,24 +83,26 @@ public class Game implements KeyboardHandler {
 
 
     public void moveAllLanes() throws InterruptedException {
+        int counter = 0;
         for (int i = 0; i < this.lanes.length; i++) {
             if (lanes[i].getObjects() != null) {
-                System.out.println("Estou a ver os obstáculos desta lane");
+                System.out.println("Estou no lane " + i);
                 for (int j = 0; j < lanes[i].getObjects().length; j++) {
                     if (lanes[i].getObjects()[j] != null) {
-                        System.out.println("Estou a ver um obstáculo");
-                        while (!grid.isEdge(lanes[i].getObjects()[j])) {
-                            Thread.sleep(75);
-                            if (lanes[i].getObjects()[j].getSprite().getMaxX() <= grid.getWidth()) {
-                                lanes[i].getObjects()[j].move(lanes[i].getObjects()[j].getDir(), Grid.CELL_SIZE);
+                        System.out.println("Estou na coluna " + j);
+                        while (lanes[i].getObjects()[j].getSprite().getMaxX() - Lane.OFFSET  < grid.getWidth()||
+                                lanes[i].getObjects()[j].getSprite().getX() -Lane.OFFSET > grid.PADDING) {
+                            Thread.sleep(10);
+                            if (lanes[i].getObjects()[j].getSprite().getMaxX() > grid.getWidth()||
+                                    lanes[i].getObjects()[j].getSprite().getX() < grid.PADDING ) {
                                 System.out.println("moved");
+                                break;
                             }
-                            System.out.println("AQUI"); 
-
+                            lanes[i].getObjects()[j].move(lanes[i].getObjects()[j].getDir(), Grid.CELL_SIZE);
+                            System.out.println("AQUI " + j);
                         }
-
-                        //lanes[i].getObjects()[j].getSprite().delete();
-                        System.out.println("ESTAMOS AQUI");
+                        counter++;
+                        System.out.println("Deu a volta " + counter);
                     }
                 }
 

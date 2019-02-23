@@ -6,15 +6,15 @@ public class Pig extends GameObject implements Rideable {
 
 
     public Pig(int col, int row, GameObject.Direction dir) {
-        this.setSpeed(2);
+        this.setSpeed(1);
         this.setDir(dir);
 
         if (dir == GameObject.Direction.LEFT) {
-            this.setSprite(new Picture(col,row,"GameObjects/TractorLeft.png"));
+            this.setSprite(new Picture(col,row,"Bunny/BunnyLeft.png"));
             this.getSprite().draw();
 
         } else {
-            this.setSprite(new Picture(col,row,"GameObjects/TractorRight.png"));
+            this.setSprite(new Picture(col,row,"Bunny/BunnyRight.png"));
             this.getSprite().draw();
         }
     }

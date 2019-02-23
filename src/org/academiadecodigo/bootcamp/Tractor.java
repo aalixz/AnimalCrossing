@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Tractor extends GameObject implements Collidable {
 
     public Tractor(int col, int row, GameObject.Direction dir) {
-        this.setSpeed(3);
+        this.setSpeed(1);
         this.setDir(dir);
 
         if (dir == GameObject.Direction.LEFT) {

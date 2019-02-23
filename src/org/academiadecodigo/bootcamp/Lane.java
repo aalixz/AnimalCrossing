@@ -2,13 +2,12 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import static org.academiadecodigo.bootcamp.Collidable.CollidableType.*;
-
 public class Lane {
 
     // region Properties
     private int rowIndex;
     private GameObject[] objects;
+    public static final int OFFSET =(int) (Math.random() * 3 * Grid.CELL_SIZE);
     // endregion
 
     public Lane(int rowIndex) {
@@ -23,8 +22,6 @@ public class Lane {
     public void generateCollidableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
         this.objects  = new GameObject[num];
 
-        int offset = (int) (Math.random() * 3 * Grid.CELL_SIZE);
-
         spacing = spacing * Grid.CELL_SIZE;
 
         int random = (int) (Math.random() * Collidable.CollidableType.values().length);
@@ -34,7 +31,7 @@ public class Lane {
         switch (type) {
             case FOX:
                 drawBackground(grid, "BackgroundTiles/GrassTile.png");
-                int posX = offset;
+                int posX = OFFSET;
                 for (int i = 0; i < num; i++) {
                     this.objects[i] = GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
                     posX += spacing;
@@ -43,10 +40,10 @@ public class Lane {
 
             case TRACTOR:
                 drawBackground(grid, "BackgroundTiles/CropTile.png");
-                posX = offset;
+               int posY = OFFSET;
                 for (int i = 0; i < num; i++) {
-                    this.objects[i] = GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
-                    posX += spacing;
+                    this.objects[i] = GameObjectFactory.getNewCollidable(posY, grid.rowToY(rowIndex), type, dir);
+                   posY += spacing;
                 }
                 break;
 
@@ -60,7 +57,6 @@ public class Lane {
     public void generateRideableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
         this.objects = new GameObject[num];
 
-        int offset = (int) (Math.random() * 3 * Grid.CELL_SIZE);
 
         spacing = spacing * Grid.CELL_SIZE;
 
@@ -71,7 +67,7 @@ public class Lane {
         switch (type) {
             case PIG:
                 drawBackground(grid, "BackgroundTiles/MudTile.png");
-                int posX = offset;
+                int posX = OFFSET;
                 for (int i = 0; i < num; i++) {
                     this.objects[i] = GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
                     posX += spacing;
@@ -80,7 +76,7 @@ public class Lane {
 
             case PLANK:
                 drawBackground(grid, "BackgroundTiles/MudTile.png");
-                posX = offset;
+                posX = OFFSET;
                 for (int i = 0; i < num; i++) {
                     this.objects[i] = GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
                     posX += spacing;
