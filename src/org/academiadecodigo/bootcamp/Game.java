@@ -6,6 +6,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+
 public class Game implements KeyboardHandler {
 
     private Grid grid;
@@ -20,6 +21,7 @@ public class Game implements KeyboardHandler {
     }
 
     public void start() throws Exception {
+
 
         // region Key Events
         addKeyEvent(KeyboardEvent.KEY_UP, KeyboardEventType.KEY_PRESSED);
