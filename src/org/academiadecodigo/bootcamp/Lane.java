@@ -5,11 +5,13 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Lane {
 
 	// region Properties
+	private int length;
 	private int rowIndex;
 	private GameObject[] objects;
 	// endregion
 
-	public Lane(int rowIndex) {
+	public Lane(int length, int rowIndex) {
+		this.length = length;
 		this.rowIndex = rowIndex;
 	}
 
@@ -102,8 +104,17 @@ public class Lane {
 
 	public void moveAllObjects() {
 		for (GameObject o : objects) {
-
-			o.move();
+			for (int counter = 0; counter < o.getSpeed(); counter++) {
+				if (o.getDir() == GameObject.Direction.RIGHT &&
+						o.getSprite().getMaxX() >= length - o.getSprite().getWidth()) {
+					o.getSprite().delete();
+				} else if (o.getDir() == GameObject.Direction.LEFT &&
+						o.getSprite().getX() <= Grid.PADDING + o.getSprite().getWidth()) {
+					o.getSprite().delete();
+				} else {
+					o.move();
+				}
+			}
 		}
 	}
 
