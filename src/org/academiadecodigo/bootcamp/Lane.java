@@ -14,7 +14,7 @@ public class Lane {
 	}
 
 	public void generateSafeLane(Grid grid) {
-		this.objects = null;
+		this.objects = new GameObject[0];
 		drawBackground(grid, "BackgroundTiles/SafeGrassTile.png");
 	}
 
@@ -58,9 +58,9 @@ public class Lane {
 	public void generateRideableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
 		this.objects = new GameObject[num];
 
-		int offset = (int) (Math.random() * 3 * grid.CELL_SIZE);
+		int offset = (int) (Math.random() * 3 * Grid.CELL_SIZE);
 
-		spacing = spacing * grid.CELL_SIZE;
+		spacing = spacing * Grid.CELL_SIZE;
 
 		int random = (int) (Math.random() * Rideable.RideableType.values().length);
 		Rideable.RideableType type = Rideable.RideableType.values()[random];

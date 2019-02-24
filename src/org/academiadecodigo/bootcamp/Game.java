@@ -12,11 +12,13 @@ public class Game implements KeyboardHandler {
     private Lane[] lanes;
     private Player bunny;
     private Keyboard kb;
+    private boolean gameOver;
 
     public Game() {
         this.grid = new Grid();
         this.bunny = new Player(grid.columnToX(grid.getCols() / 2), grid.rowToY(grid.getRows() - 1));
         this.kb = new Keyboard(this);
+        this.gameOver = false;
     }
 
     public void start() throws Exception {
@@ -26,7 +28,6 @@ public class Game implements KeyboardHandler {
         addKeyEvent(KeyboardEvent.KEY_DOWN, KeyboardEventType.KEY_PRESSED);
         addKeyEvent(KeyboardEvent.KEY_LEFT, KeyboardEventType.KEY_PRESSED);
         addKeyEvent(KeyboardEvent.KEY_RIGHT, KeyboardEventType.KEY_PRESSED);
-        addKeyEvent(KeyboardEvent.KEY_SPACE, KeyboardEventType.KEY_PRESSED);
         addKeyEvent(KeyboardEvent.KEY_Q, KeyboardEventType.KEY_PRESSED);
         // endregion
 
@@ -79,18 +80,22 @@ public class Game implements KeyboardHandler {
 
         moveAllLanes();
 
+        if (bunny.getPlayerSprite().getY() == grid.rowToY(0)) {
+        	win();
+		}
+
     }
 
-/*   public void moveAllLanes() {
+   public void moveAllLanes() {
+		while(!gameOver)
         for (int i = 0; i < this.lanes.length; i++) {
-            lanes[i].moveAllObjects(grid.PADDING, grid.getWidth());
-        }
-    }*/
+            lanes[i].moveAllObjects();
+    }
 
-    public void moveAllLanes() throws InterruptedException {
+    /*public void moveAllLanes() throws InterruptedException {
         int counter = 0;
         for (int i = 0; i < this.lanes.length; i++) {
-            if (lanes[i].getObjects() != null) {
+            if (lanes[i].getObjects().length > 0) {
                 System.out.println("Estou no lane " + i);
                 for (int j = 0; j < lanes[i].getObjects().length; j++) {
                     if (lanes[i].getObjects()[j] != null) {
@@ -114,12 +119,15 @@ public class Game implements KeyboardHandler {
 
             }
         }
-    }
+    }*/
 
     // ((obstacle.getDir() == GameObject.Direction.LEFT && obstacle.getSprite().getX() == PADDING) ||
     //              (obstacle.getDir() == GameObject.Direction.RIGHT && obstacle.getSprite().getMaxX() == getWidth()));
 
-    private void addKeyEvent(int key, KeyboardEventType type) {
+
+
+
+	private void addKeyEvent(int key, KeyboardEventType type) {
         KeyboardEvent keyEvent = new KeyboardEvent();
         keyEvent.setKey(key);
         keyEvent.setKeyboardEventType(type);
@@ -168,5 +176,9 @@ public class Game implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
+
+    private void win() {
+		this.gameOver = true;
+	}
 
 }
