@@ -4,7 +4,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.io.IOException;
 
-public class Player {
+public class Player extends GameObject {
 
     private Picture playerSprite;
     private Sound rabbit = new Sound();
@@ -66,4 +66,5 @@ public class Player {
     public Picture getPlayerSprite() {
         return playerSprite;
     }
+
 }

@@ -8,9 +8,9 @@ public class Plank extends GameObject implements Rideable {
         this.setSpeed(1);
         this.setDir(dir);
 
-            // TODO: array de sprites
-            this.setSprite(new Picture(col,row,"GameObjects/PlankLeft.png"));
-            this.getSprite().draw();
+        // TODO: array de sprites
+        this.setSprite(new Picture(col,row,"GameObjects/PlankLeft.png"));
+        this.getSprite().draw();
 
     }
 

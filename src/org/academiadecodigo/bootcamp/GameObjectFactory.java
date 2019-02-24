@@ -1,7 +1,7 @@
 package org.academiadecodigo.bootcamp;
 
 
-public class GameObjectFactory implements Collidable, Rideable {
+public class GameObjectFactory implements Collidable, Rideable{
 
     public static GameObject getNewCollidable(int col, int row, CollidableType type, GameObject.Direction dir) {
 
@@ -45,10 +45,5 @@ public class GameObjectFactory implements Collidable, Rideable {
 
     }
 
-   /* private GameObject.Direction getRandomDirection(){
-        int random = (int)(Math.random() * GameObject.Direction.values().length);
-        GameObject.Direction dir = GameObject.Direction.values()[random];
-        return dir;
-    }*/
 
 }

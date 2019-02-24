@@ -63,7 +63,6 @@ public class Game implements KeyboardHandler {
 				playerReset();
 			}
 
-
 			if (bunny.getPlayerSprite().getY() == grid.rowToY(0) && !gameOver) {
 				win();
 			}

@@ -2,13 +2,18 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-abstract class GameObject implements Collidable, Rideable {
+abstract class GameObject {
 
 	// region Properties
 	private Picture sprite;
 	private int speed;
 	private GameObject.Direction dir;
 	// endregion
+
+	enum Type {
+		COLLIDABLE,
+		RIDEABLE
+	}
 
 	enum Direction {
 		LEFT,
