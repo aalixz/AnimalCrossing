@@ -20,11 +20,15 @@ abstract class GameObject implements Collidable, Rideable {
         RIGHT
     }
 
-    public void move(GameObject.Direction dir, int cellSize) {
-        if (dir == Direction.LEFT && this.sprite.getX() >0 ) {
-            this.sprite.translate(-cellSize * speed, 0);
-        } else if(dir == Direction.RIGHT && this.sprite.getMaxX()< 780) {
-            this.sprite.translate(cellSize * speed, 0);
+    public void move() {
+        int moveCount = 0;
+        while (moveCount < this.speed) {
+            if (this.dir == Direction.LEFT) {
+                this.sprite.translate(-Grid.CELL_SIZE, 0);
+            } else if (this.dir == Direction.RIGHT) {
+                this.sprite.translate(Grid.CELL_SIZE, 0);
+            }
+            moveCount++;
         }
     }
 

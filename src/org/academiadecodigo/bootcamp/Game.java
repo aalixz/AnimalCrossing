@@ -81,6 +81,11 @@ public class Game implements KeyboardHandler {
 
     }
 
+/*   public void moveAllLanes() {
+        for (int i = 0; i < this.lanes.length; i++) {
+            lanes[i].moveAllObjects(grid.PADDING, grid.getWidth());
+        }
+    }*/
 
     public void moveAllLanes() throws InterruptedException {
         int counter = 0;
@@ -90,15 +95,16 @@ public class Game implements KeyboardHandler {
                 for (int j = 0; j < lanes[i].getObjects().length; j++) {
                     if (lanes[i].getObjects()[j] != null) {
                         System.out.println("Estou na coluna " + j);
-                        while (lanes[i].getObjects()[j].getSprite().getMaxX()  < grid.getWidth()||
-                                lanes[i].getObjects()[j].getSprite().getX() > grid.PADDING) {
-                            Thread.sleep(100);
-                            if (lanes[i].getObjects()[j].getSprite().getMaxX() > grid.getWidth()||
-                                    lanes[i].getObjects()[j].getSprite().getX() < grid.PADDING ) {
+                        while (!(lanes[i].getObjects()[j].getSprite().getMaxX() >= grid.getWidth()||
+                                lanes[i].getObjects()[j].getSprite().getX() <= grid.PADDING )) {
+                            Thread.sleep(1000);
+                            lanes[i].moveAllObjects();
+                            if (lanes[i].getObjects()[j].getSprite().getMaxX() >= grid.getWidth()||
+                                    lanes[i].getObjects()[j].getSprite().getX() <= grid.PADDING ) {
+                                lanes[i].getObjects()[j].getSprite().delete();
                                 System.out.println("moved");
                                 break;
                             }
-                            lanes[i].getObjects()[j].move(lanes[i].getObjects()[j].getDir(), Grid.CELL_SIZE);
                             System.out.println("AQUI " + j);
                         }
                         counter++;
@@ -109,7 +115,6 @@ public class Game implements KeyboardHandler {
             }
         }
     }
-
 
     // ((obstacle.getDir() == GameObject.Direction.LEFT && obstacle.getSprite().getX() == PADDING) ||
     //              (obstacle.getDir() == GameObject.Direction.RIGHT && obstacle.getSprite().getMaxX() == getWidth()));
