@@ -10,11 +10,6 @@ abstract class GameObject implements Collidable, Rideable {
 	private GameObject.Direction dir;
 	// endregion
 
-	enum Type {
-		COLLIDABLE,
-		RIDEABLE
-	}
-
 	enum Direction {
 		LEFT,
 		RIGHT

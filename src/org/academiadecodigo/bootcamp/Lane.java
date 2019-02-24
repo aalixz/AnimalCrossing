@@ -4,15 +4,23 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Lane {
 
+	enum LaneType {
+		SAFE,
+		COLLIDABLE,
+		RIDEABLE
+	}
+
 	// region Properties
 	private int length;
 	private int rowIndex;
 	private GameObject[] objects;
+	private LaneType type;
 	// endregion
 
 	public Lane(int length, int rowIndex) {
 		this.length = length;
 		this.rowIndex = rowIndex;
+		this.type = LaneType.SAFE;
 	}
 
 	public void generateSafeLane(Grid grid) {
@@ -21,6 +29,7 @@ public class Lane {
 	}
 
 	public void generateCollidableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
+		this.type = LaneType.COLLIDABLE;
 		this.objects = new GameObject[num];
 
 		int offset = (int)(Math.random() * 3) * Grid.CELL_SIZE + Grid.PADDING;
@@ -58,6 +67,7 @@ public class Lane {
 	}
 
 	public void generateRideableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
+		this.type = LaneType.RIDEABLE;
 		this.objects = new GameObject[num];
 
 		int offset = (int)(Math.random() * 3) * Grid.CELL_SIZE + Grid.PADDING;
@@ -126,6 +136,11 @@ public class Lane {
 	public GameObject[] getObjects() {
 		return objects;
 	}
+
+	public LaneType getType() {
+		return type;
+	}
+
 	// endregion
 
 }

@@ -49,10 +49,17 @@ public class Game implements KeyboardHandler {
 		MOVE_TEXT.draw();
 		QUIT_TEXT.draw();
 
+		Lane bunnyLane;
+		boolean touchingObject;
+
 		while (true) {
 			moveAllLanes();
 
-			if (CollisionDetector.collided(bunny, lanes[grid.yToRow(bunny.getPlayerSprite().getY())])) {
+			bunnyLane = lanes[grid.yToRow(bunny.getPlayerSprite().getY())];
+			touchingObject = CollisionDetector.collided(bunny, bunnyLane);
+
+			if (bunnyLane.getType() == Lane.LaneType.COLLIDABLE && touchingObject ||
+			bunnyLane.getType() == Lane.LaneType.RIDEABLE && !touchingObject) {
 				playerReset();
 			}
 
