@@ -110,7 +110,7 @@ public class Lane {
 					o.getSprite().translate(-(o.getSprite().getX() - Grid.PADDING), 0);
 				} else if (o.getDir() == GameObject.Direction.LEFT &&
 						o.getSprite().getX() < Grid.PADDING + o.getSprite().getWidth()) {
-					o.getSprite().translate(length - o.getSprite().getMaxX(), 0);
+					o.getSprite().translate(length - o.getSprite().getMaxX() + Grid.PADDING, 0);
 				} else {
 					o.move();
 				}

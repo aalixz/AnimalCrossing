@@ -17,6 +17,10 @@ public class Player {
         playerSprite.draw();
     }
 
+    public void hide() {
+        playerSprite.delete();
+    }
+
     public void moveRight(){
             playerSprite.load("Bunny/BunnyRight.png");
             playerSprite.translate(Grid.CELL_SIZE, 0);

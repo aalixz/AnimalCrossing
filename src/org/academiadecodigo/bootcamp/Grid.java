@@ -22,8 +22,8 @@ public class Grid {
         return row * CELL_SIZE + PADDING;
     }
 
-    public int xToCol (int x) {
-        return (x - PADDING)  / CELL_SIZE;
+    public int yToRow (int y) {
+        return (y - PADDING)  / CELL_SIZE;
     }
 
     // region Getters
