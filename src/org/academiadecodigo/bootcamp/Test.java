@@ -1,15 +1,8 @@
 package org.academiadecodigo.bootcamp;
 
-import java.io.IOException;
-
 public class Test {
-    public static void main(String[] args) throws IOException {
-        Sound sound = new Sound();
+    public static void main(String[] args) throws Exception {
         Game slot1 = new Game();
-
-        sound.generalSound();
-
-
 
         slot1.start();
 

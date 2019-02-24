@@ -2,13 +2,11 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import static org.academiadecodigo.bootcamp.Collidable.CollidableType.*;
-
 public class Lane {
 
     // region Properties
     private int rowIndex;
-    private GameObject[] obstacles;
+    private GameObject[] objects;
     // endregion
 
     public Lane(int rowIndex) {
@@ -16,18 +14,18 @@ public class Lane {
     }
 
     public void generateSafeLane(Grid grid) {
-        this.obstacles = null;
+        this.objects = null;
         drawBackground(grid, "BackgroundTiles/GrassTile.png");
     }
 
     public void generateCollidableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
-        this.obstacles = new GameObject[num];
+        this.objects  = new GameObject[num];
 
-        int offset = (int)(Math.random() * 3 * grid.CELL_SIZE);
+		int offset = (int)(Math.random() * 3 * grid.CELL_SIZE);
 
-        spacing = spacing * grid.CELL_SIZE;
+        spacing = spacing * Grid.CELL_SIZE;
 
-        int random = (int)(Math.random() * Collidable.CollidableType.values().length);
+        int random = (int) (Math.random() * Collidable.CollidableType.values().length);
         Collidable.CollidableType type = Collidable.CollidableType.values()[random];
 
 
@@ -36,7 +34,7 @@ public class Lane {
                 drawBackground(grid, "BackgroundTiles/GrassTile.png");
                     int posX = offset;
                     for (int i = 0; i < num; i++) {
-                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
+						this.objects[i] = GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
                         posX += spacing;
                     }
                 break;
@@ -45,7 +43,7 @@ public class Lane {
                 drawBackground(grid, "BackgroundTiles/CropTile.png");
                     posX = offset;
                     for (int i = 0; i < num; i++) {
-                        GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
+						this.objects[i] = GameObjectFactory.getNewCollidable(posX, grid.rowToY(rowIndex), type, dir);
                         posX += spacing;
                     }
                 break;
@@ -58,7 +56,7 @@ public class Lane {
     }
 
     public void generateRideableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
-        this.obstacles = new GameObject[num];
+        this.objects = new GameObject[num];
 
         int offset = (int)(Math.random() * 3 * grid.CELL_SIZE);
 
@@ -73,7 +71,7 @@ public class Lane {
                 drawBackground(grid, "BackgroundTiles/MudTile.png");
                 int posX = offset;
                 for (int i = 0; i < num; i++) {
-                    GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
+					this.objects[i] = GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
                     posX += spacing;
                 }
                 break;
@@ -82,14 +80,13 @@ public class Lane {
                 drawBackground(grid, "BackgroundTiles/MudTile.png");
                 posX = offset;
                 for (int i = 0; i < num; i++) {
-                    GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
+					this.objects[i] = GameObjectFactory.getNewRideable(posX, grid.rowToY(rowIndex), type, dir);
                     posX += spacing;
                 }
                 break;
 
             default:
                 generateSafeLane(grid);
-                break;
         }
 
     }
@@ -107,8 +104,8 @@ public class Lane {
         return rowIndex;
     }
 
-    public GameObject[] getObstacles() {
-        return obstacles;
+    public GameObject[] getObjects() {
+        return objects;
     }
     // endregion
 

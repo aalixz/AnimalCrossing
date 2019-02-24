@@ -2,7 +2,7 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-abstract class GameObject {
+abstract class GameObject implements Collidable, Rideable {
 
     // region Properties
     private Picture sprite;
@@ -21,9 +21,9 @@ abstract class GameObject {
     }
 
     public void move(GameObject.Direction dir, int cellSize) {
-        if (dir == Direction.LEFT) {
+        if (dir == Direction.LEFT && this.sprite.getX() >0 ) {
             this.sprite.translate(-cellSize * speed, 0);
-        } else {
+        } else if(dir == Direction.RIGHT && this.sprite.getMaxX()< 780) {
             this.sprite.translate(cellSize * speed, 0);
         }
     }

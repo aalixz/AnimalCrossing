@@ -3,9 +3,9 @@ package org.academiadecodigo.bootcamp;
 
 public class GameObjectFactory implements Collidable, Rideable {
 
-    public static Collidable getNewCollidable(int col, int row, CollidableType type, GameObject.Direction dir) {
+    public static GameObject getNewCollidable(int col, int row, CollidableType type, GameObject.Direction dir) {
 
-        Collidable obstacle;
+        GameObject obstacle;
 
         switch (type) {
             case FOX:
@@ -24,9 +24,9 @@ public class GameObjectFactory implements Collidable, Rideable {
 
     }
 
-    public static Rideable getNewRideable(int col, int row, RideableType type, GameObject.Direction dir) {
+    public static GameObject getNewRideable(int col, int row, RideableType type, GameObject.Direction dir) {
 
-        Rideable obstacle;
+        GameObject obstacle;
 
         switch (type) {
             case PIG:
