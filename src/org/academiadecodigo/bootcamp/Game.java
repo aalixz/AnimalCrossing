@@ -15,7 +15,7 @@ public class Game implements KeyboardHandler {
 
     public Game() {
         this.grid = new Grid();
-        this.bunny = new Player(grid, grid.columnToX(grid.getCols() / 2), grid.rowToY(grid.getRows() - 1));
+        this.bunny = new Player(grid.columnToX(grid.getCols() / 2), grid.rowToY(grid.getRows() - 1));
         this.kb = new Keyboard(this);
     }
 
@@ -92,7 +92,7 @@ public class Game implements KeyboardHandler {
                         System.out.println("Estou na coluna " + j);
                         while (lanes[i].getObjects()[j].getSprite().getMaxX()  < grid.getWidth()||
                                 lanes[i].getObjects()[j].getSprite().getX() > grid.PADDING) {
-                            Thread.sleep(10);
+                            Thread.sleep(100);
                             if (lanes[i].getObjects()[j].getSprite().getMaxX() > grid.getWidth()||
                                     lanes[i].getObjects()[j].getSprite().getX() < grid.PADDING ) {
                                 System.out.println("moved");
@@ -127,25 +127,25 @@ public class Game implements KeyboardHandler {
 
             case KeyboardEvent.KEY_UP:
                 if (bunny.getPlayerSprite().getY() > grid.PADDING) {
-                    bunny.moveUp(Grid.CELL_SIZE);
+                    bunny.moveUp();
                 }
                 break;
 
             case KeyboardEvent.KEY_DOWN:
                 if (bunny.getPlayerSprite().getMaxY() < grid.getHeight()) {
-                    bunny.moveDown(Grid.CELL_SIZE);
+                    bunny.moveDown();
                 }
                 break;
 
             case KeyboardEvent.KEY_LEFT:
                 if (bunny.getPlayerSprite().getX() > grid.PADDING) {
-                    bunny.moveLeft(Grid.CELL_SIZE);
+                    bunny.moveLeft();
                 }
                 break;
 
             case KeyboardEvent.KEY_RIGHT:
                 if (bunny.getPlayerSprite().getMaxX() < grid.getWidth()) {
-                    bunny.moveRight(Grid.CELL_SIZE);
+                    bunny.moveRight();
                 }
                 break;
 

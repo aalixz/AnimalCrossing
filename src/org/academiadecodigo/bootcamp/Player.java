@@ -7,23 +7,19 @@ import java.io.IOException;
 public class Player {
 
     private Picture playerSprite;
-    private int x;
-    private int y;
     private Sound rabbit = new Sound();
 
-    public Player(Grid grid, int x, int y) {
+    public Player(int x, int y) {
         this.playerSprite = new Picture(x, y, "Bunny/BunnyUp.png");
-        this.x = x;
-        this.y = y;
     }
 
     public void show() {
         playerSprite.draw();
     }
 
-    public void moveRight(int cellSize){
+    public void moveRight(){
             playerSprite.load("Bunny/BunnyRight.png");
-            playerSprite.translate(cellSize, 0);
+            playerSprite.translate(Grid.CELL_SIZE, 0);
         try {
             rabbit.rabbitSound();
         } catch (IOException e) {
@@ -33,9 +29,9 @@ public class Player {
         
     }
 
-    public void moveLeft(int cellSize) {
+    public void moveLeft() {
         playerSprite.load("Bunny/BunnyLeft.png");
-        playerSprite.translate(-cellSize, 0);
+        playerSprite.translate(-Grid.CELL_SIZE, 0);
         try {
             rabbit.rabbitSound();
         } catch (IOException e) {
@@ -43,9 +39,9 @@ public class Player {
         }
     }
 
-    public void moveUp(int cellSize) {
+    public void moveUp() {
         playerSprite.load("Bunny/BunnyUp.png");
-        playerSprite.translate(0, -cellSize);
+        playerSprite.translate(0, -Grid.CELL_SIZE);
         try {
             rabbit.rabbitSound();
         } catch (IOException e) {
@@ -53,9 +49,9 @@ public class Player {
         }
     }
 
-    public void moveDown(int cellSize) {
+    public void moveDown() {
         playerSprite.load("Bunny/BunnyDown.png");
-        playerSprite.translate(0, cellSize);
+        playerSprite.translate(0, Grid.CELL_SIZE);
         try {
             rabbit.rabbitSound();
         } catch (IOException e) {
