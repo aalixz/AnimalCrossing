@@ -15,13 +15,13 @@ public class Lane {
 
     public void generateSafeLane(Grid grid) {
         this.objects = null;
-        drawBackground(grid, "BackgroundTiles/GrassTile.png");
+        drawBackground(grid, "BackgroundTiles/SafeGrassTile.png");
     }
 
     public void generateCollidableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
         this.objects  = new GameObject[num];
 
-		int offset = (int)(Math.random() * 3 * grid.CELL_SIZE);
+		int offset = (int)(Math.random() * 3 * Grid.CELL_SIZE);
 
         spacing = spacing * Grid.CELL_SIZE;
 
