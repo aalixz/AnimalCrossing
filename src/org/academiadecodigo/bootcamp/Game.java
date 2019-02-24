@@ -55,13 +55,7 @@ public class Game implements KeyboardHandler {
 		while (true) {
 			moveAllLanes();
 
-			bunnyLane = lanes[grid.yToRow(bunny.getPlayerSprite().getY())];
-			touchingObject = CollisionDetector.collided(bunny, bunnyLane);
-
-			if (bunnyLane.getType() == Lane.LaneType.COLLIDABLE && touchingObject ||
-			bunnyLane.getType() == Lane.LaneType.RIDEABLE && !touchingObject) {
-				playerReset();
-			}
+			checkCollisions(lanes[grid.yToRow(bunny.getPlayerSprite().getY())]);
 
 			if (bunny.getPlayerSprite().getY() == grid.rowToY(0) && !gameOver) {
 				win();
@@ -70,6 +64,15 @@ public class Game implements KeyboardHandler {
 			Thread.sleep(1000);
 		}
 
+	}
+
+	private void checkCollisions(Lane bunnyLane) {
+		boolean touchingObject = CollisionDetector.collided(bunny, bunnyLane);
+
+		if (bunnyLane.getType() == Lane.LaneType.COLLIDABLE && touchingObject ||
+		bunnyLane.getType() == Lane.LaneType.RIDEABLE && !touchingObject) {
+			playerReset();
+		}
 	}
 
 	public void moveAllLanes() {
@@ -92,24 +95,28 @@ public class Game implements KeyboardHandler {
 			case KeyboardEvent.KEY_UP:
 				if (bunny.getPlayerSprite().getY() > Grid.PADDING) {
 					bunny.moveUp();
+					checkCollisions(lanes[grid.yToRow(bunny.getPlayerSprite().getY())]);
 				}
 				break;
 
 			case KeyboardEvent.KEY_DOWN:
 				if (bunny.getPlayerSprite().getMaxY() < grid.getHeight()) {
 					bunny.moveDown();
+					checkCollisions(lanes[grid.yToRow(bunny.getPlayerSprite().getY())]);
 				}
 				break;
 
 			case KeyboardEvent.KEY_LEFT:
 				if (bunny.getPlayerSprite().getX() > Grid.PADDING) {
 					bunny.moveLeft();
+					checkCollisions(lanes[grid.yToRow(bunny.getPlayerSprite().getY())]);
 				}
 				break;
 
 			case KeyboardEvent.KEY_RIGHT:
 				if (bunny.getPlayerSprite().getMaxX() < grid.getWidth()) {
 					bunny.moveRight();
+					checkCollisions(lanes[grid.yToRow(bunny.getPlayerSprite().getY())]);
 				}
 				break;
 
