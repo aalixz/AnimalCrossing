@@ -2,16 +2,20 @@ package org.academiadecodigo.bootcamp;
 
 public class CollisionDetector {
 
-    public static boolean collided(Player player, Lane[] obstacles) {
+	public static boolean collided(Player player, Lane currLane) {
+		for (GameObject o : currLane.getObjects())
+			if (hitObject(player, o)) {
+				return true;
+			}
 
-        //if (obstáculo instance of Collidable) {
-        // verificar o OPOSTO de o limite esquerdo do player >= limite direito do obstáculo
-        // OU o limite direito do player <= limite esquerdo do obstáculo
-        // OU o limite superior do player >= limite inferior do obstáculo
-        // OU o limite inferior do player <= limite superior do obstáculo
-        // }
+		return false;
+	}
 
-        return false;
-    }
+	private static boolean hitObject(Player player, GameObject object) {
+		return (player.getPlayerSprite().getX() > object.getSprite().getX() &&
+				player.getPlayerSprite().getX() < object.getSprite().getMaxX()) ||
+				(player.getPlayerSprite().getMaxX() > object.getSprite().getX() &&
+						player.getPlayerSprite().getMaxX() < object.getSprite().getMaxX());
+	}
 
 }

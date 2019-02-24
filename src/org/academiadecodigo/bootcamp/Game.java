@@ -13,12 +13,16 @@ public class Game implements KeyboardHandler {
 	private Player bunny;
 	private Keyboard kb;
 	private boolean gameOver;
+	private int playerStartX;
+	private int playerStartY;
 
 	public Game() {
 		this.grid = new Grid();
-		this.bunny = new Player(grid.columnToX(grid.getCols() / 2), grid.rowToY(grid.getRows() - 1));
+		this.bunny = new Player(playerStartX, playerStartY);
 		this.kb = new Keyboard(this);
 		this.gameOver = false;
+		this.playerStartX = grid.columnToX(grid.getCols() / 2);
+		this.playerStartY = grid.rowToY(grid.getRows() - 1);
 	}
 
 	public void start() throws Exception {
@@ -30,8 +34,6 @@ public class Game implements KeyboardHandler {
 		addKeyEvent(KeyboardEvent.KEY_RIGHT, KeyboardEventType.KEY_PRESSED);
 		addKeyEvent(KeyboardEvent.KEY_Q, KeyboardEventType.KEY_PRESSED);
 		// endregion
-
-		grid.draw();
 
 		lanes = new Lane[grid.getRows()];
 
@@ -81,6 +83,11 @@ public class Game implements KeyboardHandler {
 		while (true) {
 			moveAllLanes();
 
+			if (CollisionDetector.collided(bunny, lanes[grid.xToCol(bunny.getPlayerSprite().getX())])) {
+				playerReset();
+			}
+
+
 			if (bunny.getPlayerSprite().getY() == grid.rowToY(0) && !gameOver) {
 				win();
 			}
@@ -108,7 +115,7 @@ public class Game implements KeyboardHandler {
 		switch (event.getKey()) {
 
 			case KeyboardEvent.KEY_UP:
-				if (bunny.getPlayerSprite().getY() > grid.PADDING) {
+				if (bunny.getPlayerSprite().getY() > Grid.PADDING) {
 					bunny.moveUp();
 				}
 				break;
@@ -120,7 +127,7 @@ public class Game implements KeyboardHandler {
 				break;
 
 			case KeyboardEvent.KEY_LEFT:
-				if (bunny.getPlayerSprite().getX() > grid.PADDING) {
+				if (bunny.getPlayerSprite().getX() > Grid.PADDING) {
 					bunny.moveLeft();
 				}
 				break;
@@ -144,6 +151,11 @@ public class Game implements KeyboardHandler {
 	@Override
 	public void keyReleased(KeyboardEvent keyboardEvent) {
 
+	}
+
+	private void playerReset() {
+		bunny.getPlayerSprite().translate(playerStartX - bunny.getPlayerSprite().getX(),
+				playerStartY - bunny.getPlayerSprite().getY());
 	}
 
 	private void win() {

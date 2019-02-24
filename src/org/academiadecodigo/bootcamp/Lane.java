@@ -23,11 +23,11 @@ public class Lane {
 	public void generateCollidableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
 		this.objects = new GameObject[num];
 
-		int offset = (int) (Math.random() * 3 * Grid.CELL_SIZE);
+		int offset = (int)(Math.random() * 3) * Grid.CELL_SIZE + Grid.PADDING;
 
-		spacing = spacing * Grid.CELL_SIZE;
+		spacing = (spacing * Grid.CELL_SIZE);
 
-		int random = (int) (Math.random() * Collidable.CollidableType.values().length);
+		int random = (int)(Math.random() * Collidable.CollidableType.values().length);
 		Collidable.CollidableType type = Collidable.CollidableType.values()[random];
 
 
@@ -60,11 +60,11 @@ public class Lane {
 	public void generateRideableLane(Grid grid, GameObject.Direction dir, int num, int spacing) {
 		this.objects = new GameObject[num];
 
-		int offset = (int) (Math.random() * 3 * Grid.CELL_SIZE);
+		int offset = (int)(Math.random() * 3) * Grid.CELL_SIZE + Grid.PADDING;
 
 		spacing = spacing * Grid.CELL_SIZE;
 
-		int random = (int) (Math.random() * Rideable.RideableType.values().length);
+		int random = (int)(Math.random() * Rideable.RideableType.values().length);
 		Rideable.RideableType type = Rideable.RideableType.values()[random];
 
 

@@ -1,7 +1,5 @@
 package org.academiadecodigo.bootcamp;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-
 public class Grid {
 
     // region Properties
@@ -10,17 +8,6 @@ public class Grid {
     private final int COLS = 13;
     private final int ROWS = 11;
     // endregion
-
-    public void draw() {
-        Rectangle field = new Rectangle(PADDING, PADDING, getWidth(), getHeight());
-        field.draw();
-/*        for (int row = 0; row < ROWS; row++) {
-            for (int col = 0; col < COLS; col++) {
-                Picture tile = new Picture(columnToX(col), rowToY(row), "grassTile.png");
-                tile.show();
-            }
-        }*/
-    }
 
     public boolean isEdge(GameObject obstacle){
             return ((obstacle.getDir() == GameObject.Direction.LEFT && obstacle.getSprite().getX() == PADDING) ||
@@ -33,6 +20,10 @@ public class Grid {
 
     public int rowToY(int row) {
         return row * CELL_SIZE + PADDING;
+    }
+
+    public int xToCol (int x) {
+        return (x - PADDING)  / CELL_SIZE;
     }
 
     // region Getters
