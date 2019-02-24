@@ -106,11 +106,11 @@ public class Lane {
 		for (GameObject o : objects) {
 			for (int counter = 0; counter < o.getSpeed(); counter++) {
 				if (o.getDir() == GameObject.Direction.RIGHT &&
-						o.getSprite().getMaxX() >= length - o.getSprite().getWidth()) {
-					o.getSprite().delete();
+						o.getSprite().getMaxX() > length - o.getSprite().getWidth()) {
+					o.getSprite().translate(-(o.getSprite().getX() - Grid.PADDING), 0);
 				} else if (o.getDir() == GameObject.Direction.LEFT &&
-						o.getSprite().getX() <= Grid.PADDING + o.getSprite().getWidth()) {
-					o.getSprite().delete();
+						o.getSprite().getX() < Grid.PADDING + o.getSprite().getWidth()) {
+					o.getSprite().translate(length - o.getSprite().getMaxX(), 0);
 				} else {
 					o.move();
 				}
