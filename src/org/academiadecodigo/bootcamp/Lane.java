@@ -87,6 +87,7 @@ public class Lane {
 
 			default:
 				generateSafeLane(grid);
+				break;
 		}
 
 	}
@@ -100,10 +101,9 @@ public class Lane {
 	}
 
 	public void moveAllObjects() {
-		if (objects != null) {
-			for (GameObject o : objects) {
-				o.move();
-			}
+		for (GameObject o : objects) {
+
+			o.move();
 		}
 	}
 

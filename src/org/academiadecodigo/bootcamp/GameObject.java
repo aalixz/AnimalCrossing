@@ -32,7 +32,7 @@ abstract class GameObject implements Collidable, Rideable {
         }
     }
 
-    // region Getters.
+    // region Getters
     public Picture getSprite() {
         return sprite;
     }
