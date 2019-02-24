@@ -9,11 +9,11 @@ public class Fox extends GameObject implements Collidable{
         this.setDir(dir);
 
         if (dir == GameObject.Direction.LEFT) {
-            this.setSprite(new Picture(col,row,"GameObjects/TractorLeft.png"));
+            this.setSprite(new Picture(col,row,"GameObjects/FoxLeft.png"));
             this.getSprite().draw();
 
         } else {
-            this.setSprite(new Picture(col,row,"GameObjects/TractorRight.png"));
+            this.setSprite(new Picture(col,row,"GameObjects/FoxRight.png"));
             this.getSprite().draw();
         }
     }
