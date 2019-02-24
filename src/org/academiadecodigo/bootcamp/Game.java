@@ -181,7 +181,7 @@ public class Game implements KeyboardHandler {
 
 	private void win() {
 		this.gameOver = true;
-		// TODO: mostra win screen
+		drawWinScreen();
 	}
 
 	// TODO: implementar reset. Não funciona porque tenho de mandar parar os objetos antes
@@ -194,5 +194,115 @@ public class Game implements KeyboardHandler {
 		MOVE_TEXT.draw();
 		QUIT_TEXT.draw();
 	}*/
+
+	private void drawWinScreen() {
+		Picture[][] screen = new Picture[grid.getRows()][grid.getCols()];
+
+		screen[0] = drawGreenLine(0);
+		screen[1] = drawGreenLine(1);
+		screen[2] = drawGreenLine(2);
+
+		screen[3][0] = new Picture(grid.columnToX(0), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][1] = new Picture(grid.columnToX(1), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][2] = new Picture(grid.columnToX(2), grid.rowToY(3), "BackgroundTiles/MudTile.png");
+		screen[3][3] = new Picture(grid.columnToX(3), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][4] = new Picture(grid.columnToX(4), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][5] = new Picture(grid.columnToX(5), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][6] = new Picture(grid.columnToX(6), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][7] = new Picture(grid.columnToX(7), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][8] = new Picture(grid.columnToX(8), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][9] = new Picture(grid.columnToX(9), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][10] = new Picture(grid.columnToX(10), grid.rowToY(3), "BackgroundTiles/MudTile.png");
+		screen[3][11] = new Picture(grid.columnToX(11), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+		screen[3][12] = new Picture(grid.columnToX(12), grid.rowToY(3), "BackgroundTiles/GrassTile.png");
+
+		screen[4][0] = new Picture(grid.columnToX(0), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][1] = new Picture(grid.columnToX(1), grid.rowToY(4), "BackgroundTiles/MudTile.png");
+		screen[4][2] = new Picture(grid.columnToX(2), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][3] = new Picture(grid.columnToX(3), grid.rowToY(4), "BackgroundTiles/MudTile.png");
+		screen[4][4] = new Picture(grid.columnToX(4), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][5] = new Picture(grid.columnToX(5), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][6] = new Picture(grid.columnToX(6), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][7] = new Picture(grid.columnToX(7), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][8] = new Picture(grid.columnToX(8), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][9] = new Picture(grid.columnToX(9), grid.rowToY(4), "BackgroundTiles/MudTile.png");
+		screen[4][10] = new Picture(grid.columnToX(10), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+		screen[4][11] = new Picture(grid.columnToX(11), grid.rowToY(4), "BackgroundTiles/MudTile.png");
+		screen[4][12] = new Picture(grid.columnToX(12), grid.rowToY(4), "BackgroundTiles/GrassTile.png");
+
+		screen[5] = drawGreenLine(5);
+
+		screen[6][0] = new Picture(grid.columnToX(0), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][1] = new Picture(grid.columnToX(1), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][2] = new Picture(grid.columnToX(2), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][3] = new Picture(grid.columnToX(3), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][4] = new Picture(grid.columnToX(4), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][5] = new Picture(grid.columnToX(5), grid.rowToY(6), "BackgroundTiles/MudTile.png");
+		screen[6][6] = new Picture(grid.columnToX(6), grid.rowToY(6), "BackgroundTiles/MudTile.png");
+		screen[6][7] = new Picture(grid.columnToX(7), grid.rowToY(6), "BackgroundTiles/MudTile.png");
+		screen[6][8] = new Picture(grid.columnToX(8), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][9] = new Picture(grid.columnToX(9), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][10] = new Picture(grid.columnToX(10), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][11] = new Picture(grid.columnToX(11), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+		screen[6][12] = new Picture(grid.columnToX(12), grid.rowToY(6), "BackgroundTiles/GrassTile.png");
+
+		screen[7][0] = new Picture(grid.columnToX(0), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][1] = new Picture(grid.columnToX(1), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][2] = new Picture(grid.columnToX(2), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][3] = new Picture(grid.columnToX(3), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][4] = new Picture(grid.columnToX(4), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][5] = new Picture(grid.columnToX(5), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][6] = new Picture(grid.columnToX(6), grid.rowToY(7), "BackgroundTiles/MudTile.png");
+		screen[7][7] = new Picture(grid.columnToX(7), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][8] = new Picture(grid.columnToX(8), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][9] = new Picture(grid.columnToX(9), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][10] = new Picture(grid.columnToX(10), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][11] = new Picture(grid.columnToX(11), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+		screen[7][12] = new Picture(grid.columnToX(12), grid.rowToY(7), "BackgroundTiles/GrassTile.png");
+
+		screen[8][0] = new Picture(grid.columnToX(0), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][1] = new Picture(grid.columnToX(1), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][2] = new Picture(grid.columnToX(2), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][3] = new Picture(grid.columnToX(3), grid.rowToY(8), "BackgroundTiles/MudTile.png");
+		screen[8][4] = new Picture(grid.columnToX(4), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][5] = new Picture(grid.columnToX(5), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][6] = new Picture(grid.columnToX(6), grid.rowToY(8), "BackgroundTiles/MudTile.png");
+		screen[8][7] = new Picture(grid.columnToX(7), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][8] = new Picture(grid.columnToX(8), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][9] = new Picture(grid.columnToX(9), grid.rowToY(8), "BackgroundTiles/MudTile.png");
+		screen[8][10] = new Picture(grid.columnToX(10), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][11] = new Picture(grid.columnToX(11), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+		screen[8][12] = new Picture(grid.columnToX(12), grid.rowToY(8), "BackgroundTiles/GrassTile.png");
+
+		screen[9][0] = new Picture(grid.columnToX(0), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][1] = new Picture(grid.columnToX(1), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][2] = new Picture(grid.columnToX(2), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][3] = new Picture(grid.columnToX(3), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][4] = new Picture(grid.columnToX(4), grid.rowToY(9), "BackgroundTiles/MudTile.png");
+		screen[9][5] = new Picture(grid.columnToX(5), grid.rowToY(9), "BackgroundTiles/MudTile.png");
+		screen[9][6] = new Picture(grid.columnToX(6), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][7] = new Picture(grid.columnToX(7), grid.rowToY(9), "BackgroundTiles/MudTile.png");
+		screen[9][8] = new Picture(grid.columnToX(8), grid.rowToY(9), "BackgroundTiles/MudTile.png");
+		screen[9][9] = new Picture(grid.columnToX(9), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][10] = new Picture(grid.columnToX(10), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][11] = new Picture(grid.columnToX(11), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+		screen[9][12] = new Picture(grid.columnToX(12), grid.rowToY(9), "BackgroundTiles/GrassTile.png");
+
+		screen[10] = drawGreenLine(10);
+
+		for(int row = 0; row < screen.length; row++) {
+			for (int col = 0; col < screen[row].length; col++) {
+				screen[row][col].draw();
+			}
+		}
+	}
+
+	private Picture[] drawGreenLine(int lineIndex) {
+		Picture[] line = new Picture[grid.getCols()];
+		for (int col = 0; col < line.length; col++) {
+			line[col] = new Picture(grid.columnToX(col), grid.rowToY(lineIndex), "BackgroundTiles/GrassTile.png");
+		}
+		return line;
+	}
 
 }
