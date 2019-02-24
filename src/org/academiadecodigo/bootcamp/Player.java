@@ -25,7 +25,7 @@ public class Player {
             playerSprite.load("Bunny/BunnyRight.png");
             playerSprite.translate(cellSize, 0);
         try {
-            rabbit.generalSound();
+            rabbit.rabbitSound();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,7 +37,7 @@ public class Player {
         playerSprite.load("Bunny/BunnyLeft.png");
         playerSprite.translate(-cellSize, 0);
         try {
-            rabbit.generalSound();
+            rabbit.rabbitSound();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class Player {
         playerSprite.load("Bunny/BunnyUp.png");
         playerSprite.translate(0, -cellSize);
         try {
-            rabbit.generalSound();
+            rabbit.rabbitSound();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,7 +57,7 @@ public class Player {
         playerSprite.load("Bunny/BunnyDown.png");
         playerSprite.translate(0, cellSize);
         try {
-            rabbit.generalSound();
+            rabbit.rabbitSound();
         } catch (IOException e) {
             e.printStackTrace();
         }

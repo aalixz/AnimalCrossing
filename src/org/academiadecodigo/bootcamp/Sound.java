@@ -12,11 +12,12 @@ public  class Sound extends JFrame {
     public void generalSound()throws IOException {
 
         try {
-            URL soundURL = this.getClass().getClassLoader().getResource("yoga.wav");
+            URL soundURL = this.getClass().getClassLoader().getResource("Sounds/FarmBg.wav");
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundURL);
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             clip.start();
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -27,11 +28,11 @@ public  class Sound extends JFrame {
     }
 
 
-    public void rabbitSound() {
+    public void rabbitSound() throws IOException{
 
         try {
-            URL soundURL = this.getClass().getClassLoader().getResource("yoga.wav");
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundURL);
+            URL rabbit = this.getClass().getClassLoader().getResource("Sounds/BlipMono.wav");
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(rabbit);
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             clip.start();
@@ -44,8 +45,6 @@ public  class Sound extends JFrame {
         }
     }
 }
-
-
 
 
 
