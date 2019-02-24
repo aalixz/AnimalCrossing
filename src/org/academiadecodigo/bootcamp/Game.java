@@ -150,7 +150,7 @@ public class Game implements KeyboardHandler {
 		lanes[2].generateRideableLane(grid, GameObject.Direction.RIGHT, 2, 2);
 
 		lanes[3] = new Lane(grid.getWidth(), 3);
-		lanes[3].generateRideableLane(grid, GameObject.Direction.RIGHT, 3, 2);
+		lanes[3].generateRideableLane(grid, GameObject.Direction.LEFT, 3, 2);
 
 		lanes[4] = new Lane(grid.getWidth(), 4);
 		lanes[4].generateRideableLane(grid, GameObject.Direction.RIGHT, 4, 2);
@@ -162,7 +162,7 @@ public class Game implements KeyboardHandler {
 		lanes[6].generateCollidableLane(grid, GameObject.Direction.RIGHT, 2, 2);
 
 		lanes[7] = new Lane(grid.getWidth(), 7);
-		lanes[7].generateCollidableLane(grid, GameObject.Direction.RIGHT, 2, 2);
+		lanes[7].generateCollidableLane(grid, GameObject.Direction.LEFT, 2, 2);
 
 		lanes[8] = new Lane(grid.getWidth(), 8);
 		lanes[8].generateCollidableLane(grid, GameObject.Direction.RIGHT, 2, 2);
