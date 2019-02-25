@@ -49,9 +49,6 @@ public class Game implements KeyboardHandler {
 		MOVE_TEXT.draw();
 		QUIT_TEXT.draw();
 
-		Lane bunnyLane;
-		boolean touchingObject;
-
 		while (true) {
 			moveAllLanes();
 
@@ -61,7 +58,7 @@ public class Game implements KeyboardHandler {
 				win();
 			}
 
-			Thread.sleep(1000);
+			Thread.sleep(25);
 		}
 
 	}

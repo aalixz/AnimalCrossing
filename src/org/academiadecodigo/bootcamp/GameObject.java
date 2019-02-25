@@ -22,9 +22,9 @@ abstract class GameObject {
 
 	public void move() {
 		if (this.dir == Direction.LEFT) {
-			this.sprite.translate(-Grid.CELL_SIZE, 0);
+			this.sprite.translate(-1, 0);
 		} else if (this.dir == Direction.RIGHT) {
-			this.sprite.translate(Grid.CELL_SIZE, 0);
+			this.sprite.translate(1, 0);
 		}
 	}
 

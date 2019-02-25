@@ -12,10 +12,10 @@ public class CollisionDetector {
 	}
 
 	private static boolean hitObject(Player player, GameObject object) {
-		return (player.getPlayerSprite().getX() >= object.getSprite().getX() &&
+		return (player.getPlayerSprite().getX() > object.getSprite().getX() &&
 				player.getPlayerSprite().getX() < object.getSprite().getMaxX()) ||
 				(player.getPlayerSprite().getMaxX() > object.getSprite().getX() &&
-						player.getPlayerSprite().getMaxX() <= object.getSprite().getMaxX());
+						player.getPlayerSprite().getMaxX() < object.getSprite().getMaxX());
 	}
 
 }
