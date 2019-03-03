@@ -112,14 +112,14 @@ public class Lane {
 		}
 	}
 
-	public void moveAllObjects() {
+	public void moveAllObjects(){
 		for (GameObject o : objects) {
 			for (int counter = 0; counter < o.getSpeed(); counter++) {
 				if (o.getDir() == GameObject.Direction.RIGHT &&
-						o.getSprite().getMaxX() > length - o.getSprite().getWidth()) {
+						o.getSprite().getMaxX() >= length) {
 					o.getSprite().translate(-(o.getSprite().getX() - Grid.PADDING), 0);
 				} else if (o.getDir() == GameObject.Direction.LEFT &&
-						o.getSprite().getX() < Grid.PADDING + o.getSprite().getWidth()) {
+						o.getSprite().getX() <= Grid.PADDING) {
 					o.getSprite().translate(length - o.getSprite().getMaxX() + Grid.PADDING, 0);
 				} else {
 					o.move();
